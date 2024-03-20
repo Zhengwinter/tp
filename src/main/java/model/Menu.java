@@ -81,6 +81,16 @@ public class Menu implements ItemManager {
                         .collect(Collectors.joining("\n"));
     }
 
+
+    public void displayMenu() {
+        System.out.println("╔═════════════════════╗");
+        System.out.println("║      MENU           ║");
+        System.out.println("╠═════════════════════╣");
+        for (MenuItem item : menuItemList) {
+            System.out.printf("║ %-20s $%-8.2f ║\n", item.getName(), item.getPrice());
+        }
+        System.out.println("╚═════════════════════╝");
+
     /**
      * Set up logger for this class. It has two handlers, one FileHandler and one ConsoleHandler
      * FileHandler records log messages from FINE and above
@@ -101,5 +111,6 @@ public class Menu implements ItemManager {
         } catch (java.io.IOException e) {
             logr.log(Level.SEVERE, "File logger not working.",e);
         }
+
     }
 }
